@@ -170,4 +170,40 @@ for load in the initialization RC file |file etcdir_initrc|:
     module load core
     module load compiler/compB
 
+Preserving requirements during purge
+------------------------------------
+
+Starting with Modules v5.7, :subcmd:`purge` also keeps the direct and indirect
+requirements of retained sticky or super-sticky modules loaded. These
+requirements do not need a sticky tag of their own.
+
+For example, a site may provide a *default_workspace/enterprise* module
+tagged *super-sticky*, with the following requirement in its modulefile:
+
+.. code-block:: tcl
+
+    prereq workspace/enterprise
+
+To keep this module and its workspace requirement without reporting their
+skipped unload, set :mconfig:`sticky_purge` to ``silent``:
+
+.. code-block:: sh
+
+    module config sticky_purge silent
+    module load workspace/partner
+    module load workspace/enterprise
+    module load default_workspace/enterprise
+    module purge
+
+The unrelated *workspace/partner* module is unloaded. Both
+*workspace/enterprise* and *default_workspace/enterprise* remain loaded,
+without a dependency error. The same applies to ``module purge --force``
+because *default_workspace/enterprise* is super-sticky.
+
+With ``sticky_purge`` set to ``warning`` or ``error`` (the default), the
+skipped unload of *workspace/enterprise* instead reports ``Unload of
+super-sticky module requirement skipped`` at the corresponding severity.
+For a module tagged *sticky*, ``--force`` allows both it and its requirements
+to be unloaded unless a retained super-sticky module still needs them.
+
 .. vim:set tabstop=2 shiftwidth=2 expandtab autoindent:
