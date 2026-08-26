@@ -70,6 +70,9 @@ Modules 5.7.0 (not yet released)
   :mconfig:`non_exportable_tags` is changed with :subcmd:`config` sub-command,
   it sets the :envvar:`MODULES_NON_EXPORTABLE_TAGS` environment variable. (fix
   issue #608)
+* Keep non-sticky requirements of sticky modules loaded during a
+  :subcmd:`purge` and explicitly report why their unload is skipped according
+  to the :mconfig:`sticky_purge` configuration. (fix issue #582)
 
 
 .. _5.6 release notes:
