@@ -261,6 +261,15 @@ Modules 5.7.0 (not yet released)
 
 .. _5.6 release notes:
 
+Modules 5.6.2 (2026-09-07)
+--------------------------
+
+* Init: fix command injection in Bash completion when module names contain
+  shell meta-characters. Completion candidates were passed to ``compgen -W``
+  which evaluates command substitution syntax. (fix `CVE-2026-85013`_ found
+  by AISLE in partnership with Red Hat)
+
+
 Modules 5.6.1 (2025-11-25)
 --------------------------
 
@@ -848,6 +857,15 @@ Modules 5.4.0 (2024-02-20)
 
 
 .. _5.3 release notes:
+
+Modules 5.3.2 (2026-09-07)
+--------------------------
+
+* Init: fix command injection in Bash completion when module names contain
+  shell meta-characters. Completion candidates were passed to ``compgen -W``
+  which evaluates command substitution syntax. (fix `CVE-2026-85013`_ found
+  by AISLE in partnership with Red Hat)
+
 
 Modules 5.3.1 (2023-06-27)
 --------------------------
@@ -2284,6 +2302,15 @@ Modules 4.6.0 (2020-09-16)
 
 
 .. _4.5 release notes:
+
+Modules 4.5.4 (2026-09-07)
+--------------------------
+
+* Init: fix command injection in Bash completion when module names contain
+  shell meta-characters. Completion candidates were passed to ``compgen -W``
+  which evaluates command substitution syntax. (fix `CVE-2026-85013`_ found
+  by AISLE in partnership with Red Hat)
+
 
 Modules 4.5.3 (2020-08-31)
 --------------------------
