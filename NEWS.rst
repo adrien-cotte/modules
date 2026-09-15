@@ -251,6 +251,8 @@ Modules 5.7.0 (not yet released)
 * Doc: add the :ref:`user-guide` document that explains a selection of
   useful but lesser known features through practical examples and common
   use cases.
+* Accept abbreviated upper bounds in version ranges such as ``@3.20:3`` to
+  select versions starting at ``3.20`` within major version ``3``.
 * Init: fix command injection in Bash completion when module names contain
   shell meta-characters. Completion candidates were passed to ``compgen -W``
   which evaluates command substitution syntax. (fix `CVE-2026-85013`_ found
